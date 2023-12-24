@@ -1,10 +1,10 @@
-import React, { FunctionComponent, InputHTMLAttributes } from "react";
-import * as S from "./styles";
+import React, { type FunctionComponent, type InputHTMLAttributes } from 'react';
+import * as S from './styles';
 
 const Input: FunctionComponent<InputHTMLAttributes<HTMLInputElement>> = (
-  props
+    props
 ) => {
-  return <S.Input {...props} />;
+    return <S.Input {...props} />;
 };
 
 export default Input;
