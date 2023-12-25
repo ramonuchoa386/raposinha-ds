@@ -1,13 +1,14 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 
 import Input from './';
+import customRender from '../../utils/test-providers';
 
-describe('Running Test for Marbella Input', () => {
+describe('Testing Input Component', () => {
     test('Check placeholder in Input', () => {
-        render(<Input placeholder="Olá Raposinha" />);
+        customRender(<Input placeholder="Olá Raposinha" />);
         expect(screen.getByPlaceholderText('Olá Raposinha')).toHaveAttribute(
             'placeholder',
             'Olá Raposinha'
@@ -15,7 +16,7 @@ describe('Running Test for Marbella Input', () => {
     });
 
     test('renders the Input component', async () => {
-        render(<Input placeholder="raposinha" />);
+        customRender(<Input placeholder="raposinha" />);
         const input: HTMLInputElement =
             screen.getByPlaceholderText('raposinha');
         await userEvent.type(input, 'Olá raposinha!');
