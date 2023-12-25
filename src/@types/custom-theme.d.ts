@@ -6,5 +6,11 @@ declare module 'custom-theme' {
             baseFontSize: string;
         };
         colors: ColorPalette;
+        breakpoints: {
+            mobile: string;
+            tablet: string;
+            desktop: string;
+            desktopLarge: string;
+        };
     }
 }
