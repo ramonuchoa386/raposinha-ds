@@ -4,8 +4,9 @@ import type { Preview, ReactRenderer, StoryFn } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
-import theme, { invertTheme } from '../src/theme/theme';
-import GlobalStyles from '../src/theme';
+import { invertTheme } from '../src/theme';
+import theme from '../src/theme/config';
+import GlobalStyles from '../src/theme/global';
 
 const decorators = [
     withThemeFromJSXProvider<ReactRenderer>({
@@ -19,8 +20,10 @@ const decorators = [
     }),
     (Story: StoryFn) => (
         <Fragment>
-            <GlobalStyles />
-            <Story />
+            <ThemeProvider theme={theme}>
+                <GlobalStyles />
+                <Story />
+            </ThemeProvider>
         </Fragment>
     ),
 ];
