@@ -1,12 +1,12 @@
-import React from "react";
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import React from 'react';
+import '@testing-library/jest-dom';
+import { screen } from '@testing-library/react';
+import Button from '.';
+import customRender from '../../utils/test-providers';
 
-import Button from ".";
-
-describe("Running Test for Marbella Button", () => {
-  test("Check Button Disabled", () => {
-    render(<Button disabled>Botão</Button>);
-    expect(screen.getByRole("button", { name: "Botão" })).toBeDisabled();
-  });
+describe('Testing Button Component', () => {
+    test('Check Button Disabled', () => {
+        customRender(<Button disabled>Botão</Button>);
+        expect(screen.getByRole('button', { name: 'Botão' })).toBeDisabled();
+    });
 });
