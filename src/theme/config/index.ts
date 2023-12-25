@@ -1,28 +1,20 @@
 import { CustomTheme } from 'custom-theme';
-import colorPalette from './color-pallete';
+import colorPalette from './colorpalette';
 import typography from './typography';
-
-const defaultSetting = {
-    layouts: {
-        mobile: '320px',
-        tablet: '768px',
-        desktop: '1024px',
-        desktopLarge: '1366px',
-    },
-};
+import breakpoints from './breakpoints';
 
 const theme: CustomTheme = {
     name: 'LIGHT',
-    ...defaultSetting,
+    breakpoints: breakpoints,
     typography: typography,
     colors: {
         ...colorPalette,
     },
 };
 
-export const invertTheme = {
-    name: 'DEFAULT_INVERT',
-    ...defaultSetting,
+const invertTheme = {
+    name: 'DARK',
+    breakpoints: breakpoints,
     typography: typography,
     colors: {
         black: colorPalette.white,
@@ -34,4 +26,8 @@ export const invertTheme = {
     },
 };
 
+export * from './colorpalette';
+export * from './typography';
+export * from './breakpoints';
+export { invertTheme };
 export default theme;
