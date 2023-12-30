@@ -1,4 +1,4 @@
-import { GlobalStylesProps } from 'global-styles';
+import { GlobalStylesProps } from './global-styles.interface';
 import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle<GlobalStylesProps>((props) => {
@@ -19,4 +19,5 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>((props) => {
     `;
 });
 
+export { type GlobalStylesProps };
 export default GlobalStyles;

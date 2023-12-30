@@ -1,21 +1,17 @@
-import { CustomTheme } from 'custom-theme';
-import colorPalette from './colorpalette';
-import typography from './typography';
-import breakpoints from './breakpoints';
+import { CustomTheme } from './theme.interface';
+import colorPalette, { ColorPalette } from './colorpalette';
+import typography, { ThemeTypography } from './typography';
+import breakpoints, { ThemeBreakpoints } from './breakpoints';
 
 const theme: CustomTheme = {
     name: 'LIGHT',
     breakpoints: breakpoints,
     typography: typography,
-    colors: {
-        ...colorPalette,
-    },
+    colors: colorPalette,
 };
 
-const invertTheme = {
-    name: 'DARK',
-    breakpoints: breakpoints,
-    typography: typography,
+const invertTheme: CustomTheme = {
+    ...theme,
     colors: {
         black: colorPalette.white,
         brown: colorPalette.sand,
@@ -26,8 +22,6 @@ const invertTheme = {
     },
 };
 
-export * from './colorpalette';
-export * from './typography';
-export * from './breakpoints';
-export { invertTheme };
+export { invertTheme, colorPalette, typography, breakpoints };
+export type { CustomTheme, ColorPalette, ThemeTypography, ThemeBreakpoints };
 export default theme;
