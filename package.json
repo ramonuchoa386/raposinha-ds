@@ -1,6 +1,6 @@
 {
     "name": "raposinha-ds",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Biblioteca de componentes visuais da Raposinha Festeira",
     "private": true,
     "main": "dist/cjs/index.js",
