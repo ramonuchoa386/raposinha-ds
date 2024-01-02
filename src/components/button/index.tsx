@@ -6,11 +6,15 @@ import React, {
 import * as S from './styles';
 
 const Button: FunctionComponent<
-    PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>
+    PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement> & S.IButtonProps
 > = (props) => {
-    const { children, ...rest } = props;
+    const { children, $buttonTheme, ...rest } = props;
 
-    return <S.Button {...rest}>{children}</S.Button>;
+    return (
+        <S.Button $buttonTheme={$buttonTheme} {...rest}>
+            {children}
+        </S.Button>
+    );
 };
 
 export default Button;

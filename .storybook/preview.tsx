@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import type { Preview, ReactRenderer, StoryFn } from '@storybook/react';
+import type { Preview, ReactRenderer } from '@storybook/react';
 
 import { ThemeProvider } from 'styled-components';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
@@ -18,14 +17,6 @@ const decorators = [
         Provider: ThemeProvider,
         GlobalStyles: GlobalStyles,
     }),
-    (Story: StoryFn) => (
-        <Fragment>
-            <ThemeProvider theme={theme}>
-                <GlobalStyles />
-                <Story />
-            </ThemeProvider>
-        </Fragment>
-    ),
 ];
 
 const preview: Preview = {
