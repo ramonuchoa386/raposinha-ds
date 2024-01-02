@@ -7,15 +7,20 @@ import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme/config';
 import 'jest-styled-components';
+import { GlobalStyles } from '../theme';
 
-const AllTheProviders: FunctionComponent<PropsWithChildren> = (props) => {
+const Providers: FunctionComponent<PropsWithChildren> = (props) => {
     const { children } = props;
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyles /> {children}
+        </ThemeProvider>
+    );
 };
 
 const customRender = (
     ui: ReactElement,
     options?: Omit<RenderOptions, 'queries'>
-) => render(ui, { wrapper: AllTheProviders, ...options });
+) => render(ui, { wrapper: Providers, ...options });
 
 export default customRender;
