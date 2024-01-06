@@ -4,7 +4,7 @@ Biblioteca de componentes visuais para acelerar a construção de interfaces dig
 
 ## Preview
 
-Em breve...
+[Clique aqui](https://ramonuchoa386.github.io/raposinha-ds) para visualizar a documentação de pre visualização dos componentes.
 
 # Como usar
 
