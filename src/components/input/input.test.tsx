@@ -1,27 +1,45 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { screen, waitFor } from '@testing-library/react';
-
+import { cleanup, screen } from '@testing-library/react';
 import Input from './';
 import customRender from '../../utils/test-providers';
 
 describe('Testing Input Component', () => {
-    test('Check placeholder in Input', () => {
-        customRender(<Input placeholder="Olá Raposinha" />);
-        expect(screen.getByPlaceholderText('Olá Raposinha')).toHaveAttribute(
-            'placeholder',
-            'Olá Raposinha'
+    afterEach(cleanup);
+
+    test('Check if correct renders the input placeholder', () => {
+        customRender(
+            <Input data-testid="input-test01" placeholder="Olá Raposinha" />
         );
+
+        const element = screen.getByTestId('input-test01');
+
+        expect(element).toHaveAttribute('placeholder', 'Olá Raposinha');
     });
 
-    test('renders the Input component', async () => {
-        customRender(<Input placeholder="raposinha" />);
-        const input: HTMLInputElement =
-            screen.getByPlaceholderText('raposinha');
-        await userEvent.type(input, 'Olá raposinha!');
-        await waitFor(() => {
-            expect(input.value).toBe('Olá raposinha!');
-        });
+    test('Check if correct receive user input', async () => {
+        customRender(
+            <Input data-testid="input-test02" placeholder="raposinha" />
+        );
+
+        const element = screen.getByTestId('input-test02');
+        await userEvent.type(element, 'Olá raposinha!');
+
+        expect(element).toHaveValue('Olá raposinha!');
+    });
+
+    test('Check if correct renders required props', () => {
+        customRender(
+            <Input
+                data-testid="input-test03"
+                placeholder="raposinha"
+                required
+            />
+        );
+
+        const element = screen.getByTestId('input-test03');
+
+        expect(element).toHaveAttribute('required');
     });
 });
