@@ -19,9 +19,9 @@ Atenda aos requisitos mínimos e execute as seguintes etapas para utilizar esta 
 
 Você precisa ter iniciado uma aplicação em React JS e ter o Styled Components como dependência.
 
-<!-- ## Instalar a biblioteca
+## Instalar a biblioteca
 
-Em desenvolvimento... -->
+Em desenvolvimento...
 
 ## Importando o tema principal e os estilos globais
 
