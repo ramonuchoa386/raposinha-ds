@@ -14,19 +14,27 @@ export default [
             {
                 file: packageJson.main,
                 format: 'cjs',
-                sourcemap: 'inline',
+                sourcemap: true,
             },
             {
                 file: packageJson.module,
                 format: 'esm',
-                sourcemap: 'inline',
+                sourcemap: true,
             },
         ],
         plugins: [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            typescript({ tsconfig: './tsconfig.json' }),
+            typescript({
+                tsconfig: './tsconfig.json',
+                exclude: [
+                    '**/*.stories.tsx',
+                    '**/*.test.tsx',
+                    '**/test-providers.tsx',
+                    '**/jest.config.ts',
+                ],
+            }),
             terser(),
         ],
         external: ['react', 'react-dom', 'styled-components'],
