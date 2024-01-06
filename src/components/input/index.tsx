@@ -4,7 +4,14 @@ import * as S from './styles';
 const Input: FunctionComponent<InputHTMLAttributes<HTMLInputElement>> = (
     props
 ) => {
-    return <S.Input {...props} />;
+    const { required } = props;
+
+    return (
+        <S.InputWrapper>
+            <S.Input {...props} />
+            {required && <S.RequiredIcon>i</S.RequiredIcon>}
+        </S.InputWrapper>
+    );
 };
 
 export default Input;
